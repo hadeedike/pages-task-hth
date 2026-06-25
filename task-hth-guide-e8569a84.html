@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>华体会 · 稳定入口与场景引导</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f2f4f6;
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 0 16px 40px;
+        }
+
+        .page-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* ===== 顶部导航 ===== */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0 14px;
+            border-bottom: 1px solid #e0e4e8;
+            margin-bottom: 32px;
+        }
+
+        .brand {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            color: #1f2a3a;
+        }
+
+        .brand span {
+            color: #2b6b9b;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3d5267;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #1a5682;
+        }
+
+        /* ===== Hero 区域 ===== */
+        .hero {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+            padding: 44px 40px 40px;
+            margin-bottom: 32px;
+            border: 1px solid #e6eaef;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            color: #1d2b3f;
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #4b5d71;
+            max-width: 720px;
+            margin-bottom: 18px;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #eaeef3;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #2d4c6a;
+            border: 1px solid #d6dfe8;
+        }
+
+        /* ===== 卡片通用 ===== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e4e9ef;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            padding: 28px 24px 24px;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: #1e2f40;
+        }
+
+        .card p {
+            font-size: 0.94rem;
+            color: #3d5167;
+            margin-bottom: 8px;
+        }
+
+        .card .meta-tag {
+            display: inline-block;
+            background: #f0f3f7;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            color: #2f5b7a;
+            border: 1px solid #dce4ed;
+            margin-bottom: 12px;
+        }
+
+        /* ===== 说明区块 ===== */
+        .faq-section {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e4e9ef;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            padding: 32px 36px 36px;
+            margin-bottom: 40px;
+        }
+
+        .faq-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1d2b3f;
+            margin-bottom: 20px;
+            border-left: 4px solid #2b6b9b;
+            padding-left: 16px;
+        }
+
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #edf1f6;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #263a4e;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            font-size: 0.92rem;
+            color: #40576b;
+            margin-bottom: 0;
+        }
+
+        /* ===== 嵌入链接的句子样式 ===== */
+        .inline-link {
+            color: #1b5f8a;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dashed #b8cdde;
+        }
+
+        .inline-link:hover {
+            color: #0b3b5e;
+            border-bottom-style: solid;
+        }
+
+        /* ===== 底部 ===== */
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #68788b;
+            padding: 22px 0 8px;
+            border-top: 1px solid #dfe5ec;
+            margin-top: 8px;
+        }
+
+        /* ===== 响应式调整 ===== */
+        @media (max-width: 640px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 18px;
+                flex-wrap: wrap;
+            }
+
+            .hero {
+                padding: 28px 20px;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .faq-section {
+                padding: 24px 18px;
+            }
+
+            .card-grid {
+                gap: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 导航 -->
+    <nav class="navbar">
+        <div class="brand"><span>✦</span> 华体会·稳定入口</div>
+        <ul class="nav-links">
+            <li><a href="#intro">概览</a></li>
+            <li><a href="#scenarios">场景</a></li>
+            <li><a href="#faq">说明</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero 介绍 -->
+    <section class="hero" id="intro">
+        <span class="tagline">稳定 · 轻量 · 引导</span>
+        <h1>了解华体会：从页面入口到使用脉络</h1>
+        <p>
+            在日常访问中，一个可靠且清晰的入口能减少反复跳转的困扰。<a href="https://task-hth.com.cn" class="inline-link">华体会</a>
+            作为持续提供页面服务的站点，其结构以信息展示和功能分区为主。本页围绕入口稳定性、模块概况和常见疑问展开，帮助新接触者快速理解页面组织方式，同时为已有使用经验的人提供一份简要的参考框架。
+        </p>
+        <p>
+            下文从三个主要场景切入，分别对应信息获取、功能引导和内容索引，每个场景都配有简短的说明。最后整理了几条常见问题摘要，覆盖访问细节与页面边界，方便对照查阅。
+        </p>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <h2 style="font-weight:600; font-size:1.3rem; color:#1d2b3f; margin-bottom:16px;">三个典型场景</h2>
+    <div class="card-grid" id="scenarios">
+        <div class="card">
+            <div class="meta-tag">场景一 · 信息入口</div>
+            <h3>稳定访问与页面概览</h3>
+            <p>
+                用户通过浏览器直接进入 <strong>华体会</strong> 首页，首先看到的是经过编排的导航与内容摘要。该页面不依赖跳转层，所有主要模块均在一级目录下呈现，适合快速浏览整体结构。页面响应时间稳定，布局以卡片和列表为主，信息层级清晰。
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="meta-tag">场景二 · 功能引导</div>
+            <h3>模块分区与操作指向</h3>
+            <p>
+                站点内将常用功能拆分为独立区块，每块带有标题和简短描述。例如资讯区、工具区与说明区相互独立，用户可根据自身需求直接定位。这种设计减少了无关干扰，同时保持页面轻量。每个模块均可通过顶部导航快速跳转。
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="meta-tag">场景三 · 内容索引</div>
+            <h3>常见说明与辅助信息</h3>
+            <p>
+                对于初次到访者，页面底部设有常见疑问汇总，覆盖访问方式、页面更新周期以及内容边界等主题。这部分采用问答摘要形式，帮助用户在不用离开当前页的情况下获得基本答案。如需更详细的信息，仍可回到首页各模块继续浏览。
+            </p>
+        </div>
+    </div>
+
+    <!-- 常见说明 FAQ 摘要 -->
+    <section class="faq-section" id="faq">
+        <h2>常见说明摘要</h2>
+
+        <div class="faq-item">
+            <strong>页面入口与访问</strong>
+            <p>
+                直接访问 <a href="https://task-hth.com.cn" class="inline-link">华体会</a> 即可进入首页，无需中间跳转。页面兼容主流浏览器及移动设备，布局随屏幕尺寸自适应。建议使用最新版浏览器以获得最佳显示效果。
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <strong>页面内容是否更新？</strong>
+            <p>
+                首页介绍和模块结构定期做小幅调整，以保持信息准确性与视觉一致性。重大变化会通过页面内提示或新增区块体现，不另行单独通知。具体更新日期可参考页面底部标注。
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <strong>各模块之间是否独立？</strong>
+            <p>
+                是的。每个场景模块对应独立的内容集合，彼此不产生数据依赖。用户可以根据兴趣单独阅读某一模块，无需按顺序浏览。模块标题和标签有助于快速区分用途。
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <strong>关于链接与外部指向</strong>
+            <p>
+                本页内出现的链接均指向 <strong>task-hth.com.cn</strong> 域名下的资源。页面不包含第三方外链，所有交互均在当前站内完成。链接文本直接使用站点名称，便于识别。
+            </p>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <span>华体会 · 页面介绍 &mdash; 信息仅供参考，以实际页面为准</span><br>
+        <span style="font-size:0.78rem; color:#7b8a9d;">内容方向：轻量导航 · 稳定入口</span>
+    </div>
+
+</div>
+</body>
+</html>
